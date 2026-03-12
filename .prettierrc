@@ -19,7 +19,10 @@
   "vueIndentScriptAndStyle": false,
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
+    "^(react|react-dom)$",
+    "^(react|react-dom)/.*$",
     "<THIRD_PARTY_MODULES>",
+    "^@fontsource/.*$",
     "^@/types/.*$",
     "^@/lib/.*$",
     "^@/ui/.*$",
@@ -34,6 +37,7 @@
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": true,
   "importOrderCaseInsensitive": true,
   "overrides": [
     {
