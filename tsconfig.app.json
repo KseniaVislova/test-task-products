@@ -27,16 +27,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@/app/*": ["./src/app/*"],
       "@/pages/*": ["./src/pages/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/context/*": ["./src/context/*"],
-      "@/router/*": ["./src/router/*"],
-      "@/assets/*": ["./src/assets/*"],
-      "@/shared/*": ["./src/shared/*"],
-      "@/ui/*": ["./src/ui/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/types/*": ["./src/types/*"]
+      "@/widgets/*": ["./src/widgets/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/entities/*": ["./src/entities/*"],
+      "@/shared/*": ["./src/shared/*"]
     }
   },
   "include": ["src"]
