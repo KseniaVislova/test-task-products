@@ -1,0 +1,43 @@
+import { forwardRef, type InputHTMLAttributes, useId } from 'react';
+
+import { cn } from '@/shared/lib/utils';
+
+export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+}
+
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ className, label, ...props }, ref) => {
+    const checkboxId = useId();
+
+    return (
+      <label className="inline-flex cursor-pointer items-center gap-2.5">
+        <span className="relative inline-flex">
+          <input
+            id={checkboxId}
+            type="checkbox"
+            className={cn(
+              'peer h-5 w-5 rounded border border-zinc-400 bg-white appearance-none',
+              'checked:bg-slate-600 checked:border-zinc-400',
+              'transition-colors',
+              'disabled:cursor-not-allowed disabled:opacity-60',
+              className
+            )}
+            ref={ref}
+            {...props}
+          />
+          <span className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 peer-checked:opacity-100">
+            <span className="h-[10px] w-[6px] -translate-y-px rotate-45 border-b-2 border-r-2 border-white" />
+          </span>
+        </span>
+        {label && (
+          <span className="select-none text-base font-medium leading-6 text-neutral-400">
+            {label}
+          </span>
+        )}
+      </label>
+    );
+  }
+);
+
+Checkbox.displayName = 'Checkbox';

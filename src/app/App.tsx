@@ -1,9 +1,7 @@
+import { Providers } from './providers';
+
 function App() {
-  return (
-    <section>
-      <h1>Здесь будет приложение</h1>
-    </section>
-  );
+  return <Providers />;
 }
 
 export default App;
