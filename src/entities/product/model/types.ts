@@ -1,17 +1,25 @@
 export interface IProduct {
   id: number;
-  name: string;
+  title: string;
+  category: string;
   price: number;
-  vendor: string;
-  article: string;
   rating: number;
-  inStock: boolean;
+  brand: string;
+  sku: string;
+  thumbnail: string;
 }
 
-export interface IProductFilters {
+export interface IProductListParams {
+  limit?: number;
+  skip?: number;
   search?: string;
-  sortBy?: 'price' | 'rating';
-  sortOrder?: 'asc' | 'desc';
+}
+
+export interface IProductListResponse {
+  products: IProduct[];
+  total: number;
+  skip: number;
+  limit: number;
 }
 
 export interface IProductFormData {

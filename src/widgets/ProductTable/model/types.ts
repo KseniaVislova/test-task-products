@@ -1,4 +1,5 @@
 export interface ProductTableRowData {
+  id: number;
   name: string;
   category: string;
   vendor: string;
@@ -7,5 +8,6 @@ export interface ProductTableRowData {
   ratingLow?: boolean;
   price: string;
   priceDecimals?: string;
+  thumbnail?: string;
   selected?: boolean;
 }

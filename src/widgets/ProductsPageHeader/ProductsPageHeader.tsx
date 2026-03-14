@@ -1,7 +1,12 @@
+import { useProductsListStore } from '@/features/productsList/model/productsListStore';
+
 import { SearchIcon } from '@/shared/ui/Icons';
 import { Input } from '@/shared/ui/Input/Input';
 
 export function ProductsPageHeader() {
+  const search = useProductsListStore((s) => s.search);
+  const setSearch = useProductsListStore((s) => s.setSearch);
+
   return (
     <header className="self-stretch h-28 px-7 bg-white rounded-[10px] inline-flex justify-between items-center gap-7">
       <div className="inline-flex flex-col justify-start items-start gap-4">
@@ -14,6 +19,8 @@ export function ProductsPageHeader() {
             type="search"
             placeholder="Найти"
             name="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             icon={<SearchIcon />}
             iconPosition="left"
             aria-label="Поиск"
