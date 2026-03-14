@@ -2,7 +2,6 @@ import { AuthLayout } from '../layouts/AuthLayout';
 import { RootLayout } from '../layouts/RootLayout';
 import { createBrowserRouter, Navigate, redirect } from 'react-router-dom';
 
-import { ComponentsShowcase } from '@/pages/ComponentsShowcase/ComponentsShowcase';
 import { LoginPage } from '@/pages/LoginPage/LoginPage';
 import { ProductsPage } from '@/pages/ProductsPage/ProductsPage';
 
@@ -34,11 +33,6 @@ export const router = createBrowserRouter([
             element: <LoginPage />,
           },
         ],
-      },
-      {
-        path: 'show-case',
-        element: <ComponentsShowcase />,
-        loader: publicLoader,
       },
       {
         loader: protectedLoader,

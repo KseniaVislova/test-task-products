@@ -1,17 +1,16 @@
 export interface IUser {
   id: number;
-  email: string;
-  name: string;
+  username: string;
 }
 
 export interface ILoginCredentials {
-  email: string;
+  username: string;
   password: string;
 }
 
-export interface ILoginResponse {
-  user: IUser;
-  token: string;
+export interface ILoginResponse extends IUser {
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface IAuthState {
