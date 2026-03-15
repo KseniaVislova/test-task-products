@@ -2,9 +2,13 @@ import { useAddProduct } from '@/features/addProduct/model/useAddProduct';
 import { AddProductModal } from '@/features/addProduct/ui/AddProductModal';
 
 import { Button } from '@/shared/ui/Button/Button';
-import { FilterIcon, PlusIcon } from '@/shared/ui/Icons';
+import { PlusIcon, RefreshIcon } from '@/shared/ui/Icons';
 
-export function ProductTableToolbar() {
+interface ProductTableToolbarProps {
+  onRefresh?: () => void | Promise<unknown>;
+}
+
+export function ProductTableToolbar({ onRefresh }: ProductTableToolbarProps) {
   const { isAddModalOpen, openAddModal, closeAddModal, onAddProductSubmit, isSubmitting } =
     useAddProduct();
 
@@ -15,9 +19,10 @@ export function ProductTableToolbar() {
         <button
           type="button"
           className="p-2.5 bg-white rounded-lg outline outline-1 outline-offset-[-1px] outline-gray-200 flex justify-start items-center gap-2"
-          aria-label="Фильтр"
+          aria-label="Обновить"
+          onClick={() => onRefresh?.()}
         >
-          <FilterIcon />
+          <RefreshIcon />
         </button>
         <Button variant="primary" size="md" className="gap-3.5" onClick={openAddModal}>
           <PlusIcon />

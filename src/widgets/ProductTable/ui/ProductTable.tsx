@@ -7,7 +7,7 @@ import { cn } from '@/shared/lib/utils';
 import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar';
 
 export function ProductTable() {
-  const { table, isLoading, paginationProps } = useProductTable();
+  const { table, isLoading, paginationProps, refetch } = useProductTable();
 
   return (
     <div className="self-stretch min-h-0 p-7 bg-white rounded-xl flex flex-col justify-start items-start gap-10">
@@ -16,7 +16,7 @@ export function ProductTable() {
           <ProgressBar />
         </div>
       )}
-      <ProductTableToolbar />
+      <ProductTableToolbar onRefresh={refetch} />
       <div className="self-stretch overflow-x-auto">
         <table className="w-full border-collapse table-fixed" style={{ minWidth: 1024 }}>
           <colgroup>

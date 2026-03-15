@@ -37,7 +37,7 @@ export function useProductTable() {
     [sortBy, order, setSort]
   );
 
-  const { rows, total, isLoading } = useProductsQuery({
+  const { rows, total, isLoading, refetch } = useProductsQuery({
     page,
     limit: PAGE_SIZE,
     search: debouncedSearch || undefined,
@@ -69,5 +69,6 @@ export function useProductTable() {
     table,
     isLoading,
     paginationProps,
+    refetch,
   };
 }
