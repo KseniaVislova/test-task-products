@@ -1,17 +1,36 @@
 import type { ProductTableRowData } from '../model/types';
+import { SortableHeader } from './SortableHeader';
 import { type ColumnDef } from '@tanstack/react-table';
+
+import type { ProductSortBy, ProductSortOrder } from '@/entities/product/model/types';
 
 import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
 import { MoreOptionsIcon, PlusIcon } from '@/shared/ui/Icons';
 
-export function getProductTableColumns(): ColumnDef<ProductTableRowData>[] {
+export interface ProductTableColumnsParams {
+  sortBy: ProductSortBy | null;
+  order: ProductSortOrder;
+  onSort: (sortBy: ProductSortBy, order: ProductSortOrder) => void;
+}
+
+export function getProductTableColumns({
+  sortBy,
+  order,
+  onSort,
+}: ProductTableColumnsParams): ColumnDef<ProductTableRowData>[] {
   return [
     {
       id: 'select',
       header: () => (
         <div className="w-72 py-px flex justify-start items-center gap-5">
           <Checkbox aria-label="Выбрать все" />
-          <span className="text-zinc-400 text-base font-bold font-[Cairo]">Наименование</span>
+          <SortableHeader
+            label="Наименование"
+            apiSortBy="title"
+            sortBy={sortBy}
+            order={order}
+            onSort={onSort}
+          />
         </div>
       ),
       cell: ({ row }) => (
@@ -44,8 +63,15 @@ export function getProductTableColumns(): ColumnDef<ProductTableRowData>[] {
     {
       accessorKey: 'vendor',
       header: () => (
-        <span className="w-32 text-center block text-zinc-400 text-base font-bold font-[Cairo]">
-          Вендор
+        <span className="w-32 flex justify-center">
+          <SortableHeader
+            label="Вендор"
+            apiSortBy="brand"
+            sortBy={sortBy}
+            order={order}
+            onSort={onSort}
+            className="w-32"
+          />
         </span>
       ),
       cell: ({ getValue }) => (
@@ -58,8 +84,15 @@ export function getProductTableColumns(): ColumnDef<ProductTableRowData>[] {
     {
       accessorKey: 'article',
       header: () => (
-        <span className="w-40 text-center block text-zinc-400 text-base font-bold font-[Cairo]">
-          Артикул
+        <span className="w-40 flex justify-center">
+          <SortableHeader
+            label="Артикул"
+            apiSortBy="sku"
+            sortBy={sortBy}
+            order={order}
+            onSort={onSort}
+            className="w-40"
+          />
         </span>
       ),
       cell: ({ getValue }) => (
@@ -72,8 +105,15 @@ export function getProductTableColumns(): ColumnDef<ProductTableRowData>[] {
     {
       accessorKey: 'rating',
       header: () => (
-        <span className="w-32 text-center block text-zinc-400 text-base font-bold font-[Cairo]">
-          Оценка
+        <span className="w-32 flex justify-center">
+          <SortableHeader
+            label="Оценка"
+            apiSortBy="rating"
+            sortBy={sortBy}
+            order={order}
+            onSort={onSort}
+            className="w-32"
+          />
         </span>
       ),
       cell: ({ row }) => {
@@ -98,8 +138,15 @@ export function getProductTableColumns(): ColumnDef<ProductTableRowData>[] {
     {
       accessorKey: 'price',
       header: () => (
-        <span className="w-40 text-center block text-zinc-400 text-base font-bold font-[Cairo]">
-          Цена, ₽
+        <span className="w-40 flex justify-center">
+          <SortableHeader
+            label="Цена, ₽"
+            apiSortBy="price"
+            sortBy={sortBy}
+            order={order}
+            onSort={onSort}
+            className="w-40"
+          />
         </span>
       ),
       cell: ({ row }) => (

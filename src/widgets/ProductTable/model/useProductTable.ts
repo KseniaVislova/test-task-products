@@ -27,13 +27,22 @@ export function useProductTable() {
   const search = useProductsListStore((s) => s.search);
   const page = useProductsListStore((s) => s.page);
   const setPage = useProductsListStore((s) => s.setPage);
+  const sortBy = useProductsListStore((s) => s.sortBy);
+  const order = useProductsListStore((s) => s.order);
+  const setSort = useProductsListStore((s) => s.setSort);
   const [debouncedSearch] = useDebounce(search, SEARCH_DEBOUNCE_MS);
-  const columns = useMemo(() => getProductTableColumns(), []);
+
+  const columns = useMemo(
+    () => getProductTableColumns({ sortBy, order, onSort: setSort }),
+    [sortBy, order, setSort]
+  );
 
   const { rows, total, isLoading } = useProductsQuery({
     page,
     limit: PAGE_SIZE,
     search: debouncedSearch || undefined,
+    sortBy,
+    order,
   });
 
   const table = useReactTable({

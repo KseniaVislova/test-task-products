@@ -5,6 +5,7 @@ import type { ProductTableRowData } from './types';
 import { useQuery } from '@tanstack/react-query';
 
 import { productApi } from '@/entities/product/api/productApi';
+import type { ProductSortBy, ProductSortOrder } from '@/entities/product/model/types';
 
 const PRODUCTS_QUERY_KEY = ['products'] as const;
 
@@ -12,14 +13,23 @@ export interface UseProductsQueryParams {
   page?: number;
   limit?: number;
   search?: string;
+  sortBy?: ProductSortBy | null;
+  order?: ProductSortOrder;
 }
 
-export function useProductsQuery({ page = 1, limit = 20, search }: UseProductsQueryParams = {}) {
+export function useProductsQuery({
+  page = 1,
+  limit = 20,
+  search,
+  sortBy,
+  order = 'asc',
+}: UseProductsQueryParams = {}) {
   const skip = (page - 1) * limit;
 
   const query = useQuery({
-    queryKey: [...PRODUCTS_QUERY_KEY, limit, skip, search ?? ''],
-    queryFn: () => productApi.getProducts({ limit, skip, search }),
+    queryKey: [...PRODUCTS_QUERY_KEY, limit, skip, search ?? '', sortBy ?? '', order],
+    queryFn: () =>
+      productApi.getProducts({ limit, skip, search, sortBy: sortBy ?? undefined, order }),
   });
 
   const rows: ProductTableRowData[] = useMemo(
