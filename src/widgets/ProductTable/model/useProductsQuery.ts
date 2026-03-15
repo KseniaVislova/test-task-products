@@ -4,6 +4,8 @@ import { mapProductToRow } from './mapProductToRow';
 import type { ProductTableRowData } from './types';
 import { useQuery } from '@tanstack/react-query';
 
+import { useLocalProductsStore } from '@/features/addProduct/model/store';
+
 import { productApi } from '@/entities/product/api/productApi';
 import type { ProductSortBy, ProductSortOrder } from '@/entities/product/model/types';
 
@@ -25,6 +27,7 @@ export function useProductsQuery({
   order = 'asc',
 }: UseProductsQueryParams = {}) {
   const skip = (page - 1) * limit;
+  const localProducts = useLocalProductsStore((s) => s.localProducts);
 
   const query = useQuery({
     queryKey: [...PRODUCTS_QUERY_KEY, limit, skip, search ?? '', sortBy ?? '', order],
@@ -32,11 +35,13 @@ export function useProductsQuery({
       productApi.getProducts({ limit, skip, search, sortBy: sortBy ?? undefined, order }),
   });
 
-  const rows: ProductTableRowData[] = useMemo(
-    () => query.data?.products.map(mapProductToRow) ?? [],
-    [query.data]
-  );
-  const total = query.data?.total ?? 0;
+  const rows: ProductTableRowData[] = useMemo(() => {
+    const apiRows = query.data?.products.map(mapProductToRow) ?? [];
+    const localRows = localProducts.map(mapProductToRow);
+    return [...localRows, ...apiRows];
+  }, [query.data, localProducts]);
+
+  const total = (query.data?.total ?? 0) + localProducts.length;
 
   return {
     rows,

@@ -35,3 +35,13 @@ export interface IProductFormData {
   vendor: string;
   article: string;
 }
+
+export interface IProductAddRequest {
+  title: string;
+  category: string;
+  price: number;
+  rating: number;
+  brand: string;
+  sku?: string;
+  thumbnail?: string;
+}
