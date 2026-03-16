@@ -32,11 +32,6 @@ export function useProductTable() {
   const setSort = useProductsListStore((s) => s.setSort);
   const [debouncedSearch] = useDebounce(search, SEARCH_DEBOUNCE_MS);
 
-  const columns = useMemo(
-    () => getProductTableColumns({ sortBy, order, onSort: setSort }),
-    [sortBy, order, setSort]
-  );
-
   const { rows, total, isLoading, refetch } = useProductsQuery({
     page,
     limit: PAGE_SIZE,
@@ -44,6 +39,19 @@ export function useProductTable() {
     sortBy,
     order,
   });
+
+  const rowIds = useMemo(() => rows.map((r) => String(r.id)), [rows]);
+
+  const columns = useMemo(
+    () =>
+      getProductTableColumns({
+        sortBy,
+        order,
+        onSort: setSort,
+        rowIds,
+      }),
+    [sortBy, order, setSort, rowIds]
+  );
 
   const table = useReactTable({
     data: rows,

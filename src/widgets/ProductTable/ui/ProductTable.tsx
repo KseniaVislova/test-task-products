@@ -1,9 +1,9 @@
 import { useProductTable } from '../model/useProductTable';
 import { ProductTablePagination } from './ProductTablePagination';
+import { ProductTableRow } from './ProductTableRow';
 import { ProductTableToolbar } from './ProductTableToolbar';
 import { flexRender } from '@tanstack/react-table';
 
-import { cn } from '@/shared/lib/utils';
 import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar';
 
 export function ProductTable() {
@@ -43,34 +43,9 @@ export function ProductTable() {
             ))}
           </thead>
           <tbody className="border-b border-neutral-200">
-            {table.getRowModel().rows.map((row) => {
-              const isSelected = row.original.selected;
-              return (
-                <tr
-                  key={row.id}
-                  className={cn('border-b border-neutral-200', isSelected && 'bg-slate-50')}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <td
-                      key={cell.id}
-                      className={cn(
-                        'h-16 px-4 align-middle',
-                        isSelected && cell.column.id === 'select' && 'pl-0'
-                      )}
-                    >
-                      {isSelected && cell.column.id === 'select' ? (
-                        <div className="flex items-center gap-3.5">
-                          <div className="w-[3px] h-16 bg-slate-600 shrink-0 self-stretch" />
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </div>
-                      ) : (
-                        flexRender(cell.column.columnDef.cell, cell.getContext())
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              );
-            })}
+            {table.getRowModel().rows.map((row) => (
+              <ProductTableRow key={row.id} row={row} />
+            ))}
           </tbody>
         </table>
       </div>

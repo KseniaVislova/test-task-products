@@ -1,29 +1,31 @@
 import type { ProductTableRowData } from '../model/types';
+import { TableHeaderSelectCheckbox, TableRowSelectCheckbox } from './selectCheckboxes';
 import { SortableHeader } from './SortableHeader';
 import { type ColumnDef } from '@tanstack/react-table';
 
 import type { ProductSortBy, ProductSortOrder } from '@/entities/product/model/types';
 
-import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
 import { MoreOptionsIcon, PlusIcon } from '@/shared/ui/Icons';
 
 export interface ProductTableColumnsParams {
   sortBy: ProductSortBy | null;
   order: ProductSortOrder;
   onSort: (sortBy: ProductSortBy, order: ProductSortOrder) => void;
+  rowIds: string[];
 }
 
 export function getProductTableColumns({
   sortBy,
   order,
   onSort,
+  rowIds,
 }: ProductTableColumnsParams): ColumnDef<ProductTableRowData>[] {
   return [
     {
       id: 'select',
       header: () => (
         <div className="w-72 py-px flex justify-start items-center gap-5">
-          <Checkbox aria-label="Выбрать все" />
+          <TableHeaderSelectCheckbox rowIds={rowIds} />
           <SortableHeader
             label="Наименование"
             apiSortBy="title"
@@ -35,10 +37,7 @@ export function getProductTableColumns({
       ),
       cell: ({ row }) => (
         <div className="w-72 flex justify-start items-center gap-4">
-          <Checkbox
-            defaultChecked={row.original.selected}
-            aria-label={`Выбрать ${row.original.name}`}
-          />
+          <TableRowSelectCheckbox rowId={row.original.id} name={row.original.name} />
           {row.original.thumbnail ? (
             <img
               src={row.original.thumbnail}

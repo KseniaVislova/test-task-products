@@ -18,7 +18,7 @@ export function ProductTableToolbar({ onRefresh }: ProductTableToolbarProps) {
       <div className="flex justify-start items-start gap-2">
         <button
           type="button"
-          className="p-2.5 bg-white rounded-lg outline outline-1 outline-offset-[-1px] outline-gray-200 flex justify-start items-center gap-2"
+          className="p-2.5 bg-white rounded-lg outline outline-1 outline-offset-[-1px] outline-gray-200 flex justify-start items-center gap-2 cursor-pointer"
           aria-label="Обновить"
           onClick={() => onRefresh?.()}
         >
