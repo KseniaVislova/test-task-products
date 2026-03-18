@@ -27,7 +27,7 @@ export function SortableHeader({
       type="button"
       onClick={() => onSort(apiSortBy, nextOrder)}
       className={cn(
-        'flex items-center justify-center gap-1 text-zinc-400 text-base font-bold font-[Cairo] hover:text-zinc-600 transition-colors',
+        'flex items-center justify-center gap-1 text-zinc-400 text-base font-bold font-cairo hover:text-zinc-600 transition-colors',
         isActive && 'text-zinc-800',
         className
       )}

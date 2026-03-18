@@ -3,25 +3,27 @@ import { RootLayout } from '../layouts/RootLayout';
 import { createBrowserRouter, Navigate, redirect } from 'react-router-dom';
 
 import { LoginPage } from '@/pages/LoginPage/LoginPage';
+import { NotFoundPage } from '@/pages/NotFoundPage/NotFoundPage';
 import { ProductsPage } from '@/pages/ProductsPage/ProductsPage';
 
+import { ROUTES } from '@/shared/constants';
 import { storage } from '@/shared/lib/storage';
 
 const protectedLoader = () => {
   const token = storage.getToken();
-  if (!token) return redirect('/login');
+  if (!token) return redirect(ROUTES.LOGIN);
   return null;
 };
 
 const publicLoader = () => {
   const token = storage.getToken();
-  if (token) return redirect('/products');
+  if (token) return redirect(ROUTES.PRODUCTS);
   return null;
 };
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: ROUTES.ROOT,
     element: <RootLayout />,
     children: [
       {
@@ -29,7 +31,7 @@ export const router = createBrowserRouter([
         loader: publicLoader,
         children: [
           {
-            path: 'login',
+            path: ROUTES.LOGIN.replace(/^\//, ''),
             element: <LoginPage />,
           },
         ],
@@ -38,18 +40,18 @@ export const router = createBrowserRouter([
         loader: protectedLoader,
         children: [
           {
-            path: 'products',
+            path: ROUTES.PRODUCTS.replace(/^\//, ''),
             element: <ProductsPage />,
           },
           {
-            path: '/',
-            element: <Navigate to="/products" replace />,
+            path: ROUTES.ROOT,
+            element: <Navigate to={ROUTES.PRODUCTS} replace />,
           },
         ],
       },
       {
-        path: '*',
-        element: <div>404 - Страница не найдена</div>,
+        path: ROUTES.NOT_FOUND,
+        element: <NotFoundPage />,
       },
     ],
   },

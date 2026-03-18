@@ -14,7 +14,7 @@ export function ProductTableToolbar({ onRefresh }: ProductTableToolbarProps) {
 
   return (
     <div className="self-stretch inline-flex justify-between items-center">
-      <h2 className="text-zinc-800 text-xl font-bold font-[Cairo] leading-5">Все позиции</h2>
+      <h2 className="text-zinc-800 text-xl font-bold font-cairo leading-5">Все позиции</h2>
       <div className="flex justify-start items-start gap-2">
         <button
           type="button"

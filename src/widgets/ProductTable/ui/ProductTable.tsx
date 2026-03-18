@@ -10,7 +10,7 @@ export function ProductTable() {
   const { table, isLoading, paginationProps, refetch } = useProductTable();
 
   return (
-    <div className="self-stretch min-h-0 p-7 bg-white rounded-xl flex flex-col justify-start items-start gap-10">
+    <div className="self-stretch min-h-0 bg-white rounded-xl flex flex-col justify-start items-start gap-6 sm:gap-8 lg:gap-10 p-4 sm:p-5 lg:p-7">
       {isLoading && (
         <div className="self-stretch -mx-7 -mt-7">
           <ProgressBar />
@@ -18,7 +18,7 @@ export function ProductTable() {
       )}
       <ProductTableToolbar onRefresh={refetch} />
       <div className="self-stretch overflow-x-auto">
-        <table className="w-full border-collapse table-fixed" style={{ minWidth: 1024 }}>
+        <table className="w-full border-collapse table-fixed" style={{ minWidth: 800 }}>
           <colgroup>
             <col style={{ width: 288 }} />
             <col style={{ width: 128 }} />

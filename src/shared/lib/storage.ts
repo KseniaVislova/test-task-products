@@ -28,6 +28,11 @@ class Storage {
   setRememberMe(value: boolean): void {
     localStorage.setItem(STORAGE_KEYS.REMEMBER_ME, String(value));
   }
+
+  clearAuth(): void {
+    this.removeToken();
+    localStorage.removeItem(STORAGE_KEYS.REMEMBER_ME);
+  }
 }
 
 export const storage = new Storage();

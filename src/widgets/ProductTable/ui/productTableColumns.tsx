@@ -48,10 +48,10 @@ export function getProductTableColumns({
             <div className="w-12 h-12 bg-stone-300 rounded-lg border border-gray-200 shrink-0" />
           )}
           <div className="w-52 inline-flex flex-col justify-start items-start gap-2.5 min-w-0">
-            <div className="text-zinc-900 text-base font-bold font-[Cairo] truncate">
+            <div className="text-zinc-900 text-base font-bold font-cairo truncate">
               {row.original.name}
             </div>
-            <div className="text-zinc-400 text-sm font-normal font-[Cairo]">
+            <div className="text-zinc-400 text-sm font-normal font-cairo">
               {row.original.category}
             </div>
           </div>
@@ -74,7 +74,7 @@ export function getProductTableColumns({
         </span>
       ),
       cell: ({ getValue }) => (
-        <div className="w-32 text-center text-black text-base font-bold font-[Open_Sans] truncate">
+        <div className="w-32 text-center text-black text-base font-bold font-open-sans truncate">
           {getValue() as string}
         </div>
       ),
@@ -95,7 +95,7 @@ export function getProductTableColumns({
         </span>
       ),
       cell: ({ getValue }) => (
-        <div className="w-40 text-center text-black text-base font-normal font-[Open_Sans] truncate">
+        <div className="w-40 text-center text-black text-base font-normal font-open-sans truncate">
           {getValue() as string}
         </div>
       ),
@@ -121,13 +121,13 @@ export function getProductTableColumns({
           <div className="w-32 text-center">
             {ratingLow ? (
               <>
-                <span className="text-red-600 text-base font-normal font-[Open_Sans]">
+                <span className="text-red-600 text-base font-normal font-open-sans">
                   {rating.split('/')[0]}
                 </span>
-                <span className="text-black text-base font-normal font-[Open_Sans]">/5</span>
+                <span className="text-black text-base font-normal font-open-sans">/5</span>
               </>
             ) : (
-              <span className="text-black text-base font-normal font-[Open_Sans]">{rating}</span>
+              <span className="text-black text-base font-normal font-open-sans">{rating}</span>
             )}
           </div>
         );
@@ -150,10 +150,10 @@ export function getProductTableColumns({
       ),
       cell: ({ row }) => (
         <div className="w-40 text-center">
-          <span className="text-neutral-800 text-base font-normal font-[Roboto_Mono] leading-4">
+          <span className="text-neutral-800 text-base font-normal font-roboto-mono leading-4">
             {row.original.price}
           </span>
-          <span className="text-neutral-400 text-base font-normal font-[Roboto_Mono] leading-4">
+          <span className="text-neutral-400 text-base font-normal font-roboto-mono leading-4">
             {row.original.priceDecimals ?? ',00'}
           </span>
         </div>

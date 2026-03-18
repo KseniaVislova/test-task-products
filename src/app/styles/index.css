@@ -1,3 +1,4 @@
+@import './fonts.css';
 @import 'tailwindcss';
 
 /* Кастомные цвета из макета */
@@ -49,6 +50,24 @@
     0px 8px 8px 0px rgba(54, 122, 255, 0.03), inset 0px -2px 0px 1px rgba(0, 0, 0, 0.08);
   --shadow-pagination: 0px 20px 50px 0px rgba(0, 0, 0, 0.12);
   --shadow-inner-border: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.17);
+
+  /* Скругления (для замены rounded[...] значений) */
+  --radius-10: 10px;
+  --radius-28: 28px;
+  --radius-32: 32px;
+
+  /* Максимальные ширины (для замены max-w[...] значений) */
+  --max-width-520: 520px;
+  --max-width-527: 527px;
+  --max-width-1023: 1023px;
+
+  /* Тени (для замены shadow values) */
+  --shadow-auth-inner: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --shadow-auth-icon: 0px 12px 8px 0px rgba(0, 0, 0, 0.03);
+  --shadow-button-primary: 0px 8px 8px 0px rgba(54, 122, 255, 0.03);
+
+  /* Типографика */
+  --text-4xl: 40px;
 
   /* Анимации */
   --animate-fade-in: fade-in 0.3s ease-out;
@@ -117,4 +136,29 @@
   100% {
     transform: translateX(350%);
   }
+}
+
+/* Remove browser autofill background */
+input.bg-white:-webkit-autofill,
+input.bg-white:-webkit-autofill:hover,
+input.bg-white:-webkit-autofill:focus,
+input.bg-white:-webkit-autofill:active {
+  /* Chrome paints autofill background via -webkit-box-shadow */
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  -webkit-text-fill-color: inherit !important;
+  transition: background-color 9999s ease-out 0s !important;
+}
+
+/* Some browsers use this internal selector for autofilled inputs */
+input.bg-white:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
 }

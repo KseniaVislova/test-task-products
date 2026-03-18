@@ -31,16 +31,13 @@ export function Modal({ isOpen, onClose, title, children, actions, className }: 
       />
       <div
         className={cn(
-          'relative w-full max-w-lg rounded-xl bg-white p-6 shadow-[0px_24px_32px_0px_rgba(0,0,0,0.04)]',
+          'relative w-full max-w-lg rounded-xl bg-white p-6 shadow-card',
           'outline outline-1 outline-offset-[-1px] outline-gray-200',
           className
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2
-          id="modal-title"
-          className="text-zinc-800 text-xl font-bold font-[Cairo] leading-5 mb-6"
-        >
+        <h2 id="modal-title" className="text-zinc-800 text-xl font-bold font-cairo leading-5 mb-6">
           {title}
         </h2>
         <div className="mb-6">{children}</div>

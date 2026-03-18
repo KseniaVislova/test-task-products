@@ -13,7 +13,7 @@ const buttonVariants = cva(
       variant: {
         // Основная синяя кнопка с легким градиентом и тенью как в макете
         primary:
-          'min-h-10 px-5 py-2.5 bg-blue-700 text-white shadow-[0px_8px_8px_0px_rgba(54,122,255,0.03)] ' +
+          'min-h-10 px-5 py-2.5 bg-blue-700 text-white shadow-button-primary ' +
           'outline outline-1 outline-offset-[-1px] outline-blue-500 ' +
           'hover:bg-blue-600 active:bg-blue-800',
         // Белая кнопка/контрол с серой границей

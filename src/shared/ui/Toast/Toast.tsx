@@ -22,7 +22,7 @@ export const Toast = ({ title, description, variant = 'info', action, className 
   return (
     <div
       className={cn(
-        'flex items-start gap-3 rounded-xl border px-4 py-3 shadow-[0px_24px_32px_0px_rgba(0,0,0,0.04)]',
+        'flex items-start gap-3 rounded-xl border px-4 py-3 shadow-card',
         variantClasses[variant],
         className
       )}

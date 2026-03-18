@@ -11,17 +11,17 @@ import { useNavigate } from 'react-router-dom';
 
 import { authApi } from '@/entities/user/api/authApi';
 
+import { ROUTES } from '@/shared/constants';
 import { storage } from '@/shared/lib/storage';
 import { Toast } from '@/shared/ui/Toast/Toast';
 
 export function useLoginForm() {
   const navigate = useNavigate();
-  const [rememberMe, setRememberMe] = useState(() => storage.getRememberMe());
   const [formError, setFormError] = useState<string | null>(null);
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
-    defaultValues: { username: '', password: '' },
+    defaultValues: { username: '', password: '', rememberMe: false },
   });
 
   const { mutateAsync, isPending } = useMutation({ mutationFn: authApi.login });
@@ -29,10 +29,11 @@ export function useLoginForm() {
   const onSubmit = async (values: LoginFormValues) => {
     setFormError(null);
     try {
-      const response = await mutateAsync(values);
+      const { rememberMe = false, ...rest } = values;
+      const response = await mutateAsync(rest);
       storage.setToken(response.accessToken, rememberMe);
       storage.setRememberMe(rememberMe);
-      navigate('/products', { replace: true });
+      navigate(ROUTES.PRODUCTS, { replace: true });
     } catch (error) {
       const message = getApiErrorMessage(error);
       setFormError(message);
@@ -47,8 +48,6 @@ export function useLoginForm() {
     register: form.register,
     handleSubmit: form.handleSubmit,
     errors: form.formState.errors,
-    rememberMe,
-    setRememberMe,
     formError,
     isPending,
     onSubmit,
