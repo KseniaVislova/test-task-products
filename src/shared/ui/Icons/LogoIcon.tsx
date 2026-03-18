@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function LogoIcon(props: SVGProps<SVGSVGElement>) {
+export const LogoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="35"
@@ -24,4 +24,4 @@ export function LogoIcon(props: SVGProps<SVGSVGElement>) {
       <path d="M29.344 32.98C30.2178 32.98 30.926 25.8255 30.926 17C30.926 8.17447 30.2178 1.01999 29.344 1.01999C28.4703 1.01999 27.762 8.17447 27.762 17C27.762 25.8255 28.4703 32.98 29.344 32.98Z" />
     </svg>
   );
-}
+};

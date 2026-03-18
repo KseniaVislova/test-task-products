@@ -11,7 +11,7 @@ export interface ModalProps {
   className?: string;
 }
 
-export function Modal({ isOpen, onClose, title, children, actions, className }: ModalProps) {
+export const Modal = ({ isOpen, onClose, title, children, actions, className }: ModalProps) => {
   if (!isOpen) return null;
 
   const content = (
@@ -47,4 +47,4 @@ export function Modal({ isOpen, onClose, title, children, actions, className }: 
   );
 
   return createPortal(content, document.body);
-}
+};

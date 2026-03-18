@@ -9,7 +9,7 @@ interface ProductTableRowProps {
   row: Row<ProductTableRowData>;
 }
 
-export function ProductTableRow({ row }: ProductTableRowProps) {
+export const ProductTableRow = ({ row }: ProductTableRowProps) => {
   const isSelected = useProductTableSelectionStore((s) =>
     s.selectedIds.has(String(row.original.id))
   );
@@ -36,4 +36,4 @@ export function ProductTableRow({ row }: ProductTableRowProps) {
       ))}
     </tr>
   );
-}
+};

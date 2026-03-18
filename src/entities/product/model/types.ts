@@ -9,7 +9,6 @@ export interface IProduct {
   thumbnail: string;
 }
 
-/** Поля API для сортировки (DummyJSON) */
 export type ProductSortBy = 'title' | 'brand' | 'sku' | 'rating' | 'price';
 
 export type ProductSortOrder = 'asc' | 'desc';

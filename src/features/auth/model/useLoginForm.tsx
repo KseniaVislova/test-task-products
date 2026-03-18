@@ -15,7 +15,7 @@ import { ROUTES } from '@/shared/constants';
 import { storage } from '@/shared/lib/storage';
 import { Toast } from '@/shared/ui/Toast/Toast';
 
-export function useLoginForm() {
+export const useLoginForm = () => {
   const navigate = useNavigate();
   const [formError, setFormError] = useState<string | null>(null);
 
@@ -52,4 +52,4 @@ export function useLoginForm() {
     isPending,
     onSubmit,
   };
-}
+};

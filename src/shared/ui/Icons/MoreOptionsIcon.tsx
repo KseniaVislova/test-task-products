@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function MoreOptionsIcon(props: SVGProps<SVGSVGElement>) {
+export const MoreOptionsIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -17,4 +17,4 @@ export function MoreOptionsIcon(props: SVGProps<SVGSVGElement>) {
       <circle cx="16" cy="12" r="1.5" fill="currentColor" />
     </svg>
   );
-}
+};

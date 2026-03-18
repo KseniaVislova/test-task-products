@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/shared/constants';
 import { storage } from '@/shared/lib/storage';
 
-export function useLogout() {
+export const useLogout = () => {
   const navigate = useNavigate();
 
   const logout = useCallback(() => {
@@ -14,4 +14,4 @@ export function useLogout() {
   }, [navigate]);
 
   return { logout };
-}
+};

@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function PlusIcon(props: SVGProps<SVGSVGElement>) {
+export const PlusIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="20"
@@ -14,4 +14,4 @@ export function PlusIcon(props: SVGProps<SVGSVGElement>) {
       <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
-}
+};

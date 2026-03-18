@@ -11,14 +11,14 @@ export interface SortableHeaderProps {
   className?: string;
 }
 
-export function SortableHeader({
+export const SortableHeader = ({
   label,
   apiSortBy,
   sortBy,
   order,
   onSort,
   className,
-}: SortableHeaderProps) {
+}: SortableHeaderProps) => {
   const isActive = sortBy === apiSortBy;
   const nextOrder: ProductSortOrder = isActive && order === 'asc' ? 'desc' : 'asc';
 
@@ -39,4 +39,4 @@ export function SortableHeader({
       </span>
     </button>
   );
-}
+};

@@ -7,7 +7,7 @@ import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
 import { CancelIcon, LogoIcon, PasswordIcon, UserIcon } from '@/shared/ui/Icons';
 import { Input } from '@/shared/ui/Input/Input';
 
-export function LoginForm() {
+export const LoginForm = () => {
   const { form, register, handleSubmit, errors, formError, isPending, onSubmit } = useLoginForm();
 
   const onClearUsername = () => {
@@ -36,11 +36,11 @@ export function LoginForm() {
           </div>
 
           <div className="flex w-full flex-col items-start justify-center gap-4 sm:gap-5">
-            <div className="flex flex-col items-start justify-start gap-4">
+            <div className="flex w-full flex-col items-start justify-start gap-4">
               <Input
                 label="Логин"
                 placeholder="Введите логин"
-                className="w-full sm:w-96"
+                className="w-full"
                 leftIcon={<UserIcon />}
                 rightIcon={
                   <button style={{ pointerEvents: 'auto' }} onPointerDown={onClearUsername}>
@@ -56,7 +56,7 @@ export function LoginForm() {
                 label="Пароль"
                 placeholder="Введите пароль"
                 type="password"
-                className="w-full sm:w-96"
+                className="w-full"
                 icon={<PasswordIcon />}
                 {...register('password')}
                 error={errors.password?.message}
@@ -100,4 +100,4 @@ export function LoginForm() {
       </div>
     </div>
   );
-}
+};

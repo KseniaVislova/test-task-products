@@ -8,7 +8,7 @@ interface ProductTableToolbarProps {
   onRefresh?: () => void | Promise<unknown>;
 }
 
-export function ProductTableToolbar({ onRefresh }: ProductTableToolbarProps) {
+export const ProductTableToolbar = ({ onRefresh }: ProductTableToolbarProps) => {
   const { isAddModalOpen, openAddModal, closeAddModal, onAddProductSubmit, isSubmitting } =
     useAddProduct();
 
@@ -37,4 +37,4 @@ export function ProductTableToolbar({ onRefresh }: ProductTableToolbarProps) {
       />
     </div>
   );
-}
+};

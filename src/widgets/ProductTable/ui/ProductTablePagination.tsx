@@ -3,7 +3,7 @@ import type { ProductTablePaginationProps } from '../model/useProductTable';
 import { cn } from '@/shared/lib/utils';
 import { ChevronLeftIcon, ChevronRightIcon } from '@/shared/ui/Icons';
 
-export function ProductTablePagination({
+export const ProductTablePagination = ({
   from = 0,
   to = 0,
   total = 0,
@@ -12,7 +12,7 @@ export function ProductTablePagination({
   canPrev,
   canNext,
   onPageChange,
-}: ProductTablePaginationProps) {
+}: ProductTablePaginationProps) => {
   return (
     <div className="self-stretch py-2.5 inline-flex justify-between items-center">
       <div className="text-lg font-normal font-roboto">
@@ -71,4 +71,4 @@ export function ProductTablePagination({
       </div>
     </div>
   );
-}
+};

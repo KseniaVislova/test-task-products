@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function SearchIcon(props: SVGProps<SVGSVGElement>) {
+export const SearchIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -15,4 +15,4 @@ export function SearchIcon(props: SVGProps<SVGSVGElement>) {
       <path d="M16 16l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
-}
+};

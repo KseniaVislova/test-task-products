@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function CancelIcon(props: SVGProps<SVGSVGElement>) {
+export const CancelIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="17"
@@ -20,4 +20,4 @@ export function CancelIcon(props: SVGProps<SVGSVGElement>) {
       <path d="M15 1.00002L1 17" stroke="#C9C9C9" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
-}
+};

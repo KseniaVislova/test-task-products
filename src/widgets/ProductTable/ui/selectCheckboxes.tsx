@@ -18,7 +18,7 @@ function selectionModeForRowIds(selectedIds: Set<string>, rowIds: string[]): 0 |
   return 0;
 }
 
-export function TableHeaderSelectCheckbox({ rowIds }: TableHeaderSelectCheckboxProps) {
+export const TableHeaderSelectCheckbox = ({ rowIds }: TableHeaderSelectCheckboxProps) => {
   const mode = useProductTableSelectionStore((s) => selectionModeForRowIds(s.selectedIds, rowIds));
   const setSelectAll = useProductTableSelectionStore((s) => s.setSelectAll);
 
@@ -34,14 +34,14 @@ export function TableHeaderSelectCheckbox({ rowIds }: TableHeaderSelectCheckboxP
       onChange={(e) => setSelectAll(rowIds, e.target.checked)}
     />
   );
-}
+};
 
 interface TableRowSelectCheckboxProps {
   rowId: number;
   name: string;
 }
 
-export function TableRowSelectCheckbox({ rowId, name }: TableRowSelectCheckboxProps) {
+export const TableRowSelectCheckbox = ({ rowId, name }: TableRowSelectCheckboxProps) => {
   const isSelected = useProductTableSelectionStore((s) => s.selectedIds.has(String(rowId)));
   const toggleRow = useProductTableSelectionStore((s) => s.toggleRow);
 
@@ -52,4 +52,4 @@ export function TableRowSelectCheckbox({ rowId, name }: TableRowSelectCheckboxPr
       onChange={() => toggleRow(rowId)}
     />
   );
-}
+};

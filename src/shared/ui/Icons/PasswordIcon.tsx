@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function PasswordIcon(props: SVGProps<SVGSVGElement>) {
+export const PasswordIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -20,4 +20,4 @@ export function PasswordIcon(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};

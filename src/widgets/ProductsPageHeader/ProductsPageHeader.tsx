@@ -5,7 +5,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { SearchIcon } from '@/shared/ui/Icons';
 import { Input } from '@/shared/ui/Input/Input';
 
-export function ProductsPageHeader() {
+export const ProductsPageHeader = () => {
   const search = useProductsListStore((s) => s.search);
   const setSearch = useProductsListStore((s) => s.setSearch);
   const { logout } = useLogout();
@@ -45,4 +45,4 @@ export function ProductsPageHeader() {
       </Button>
     </header>
   );
-}
+};

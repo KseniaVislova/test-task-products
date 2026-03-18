@@ -10,7 +10,7 @@ function formatPrice(value: number): { main: string; decimals: string } {
   return { main: mainFormatted.replace(/\s/g, ' '), decimals: `,${dec ?? '00'}` };
 }
 
-export function mapProductToRow(product: IProduct): ProductTableRowData {
+export const mapProductToRow = (product: IProduct): ProductTableRowData => {
   const rating = product.rating;
   const ratingStr = `${Math.round(rating * 10) / 10}/5`;
   const { main: priceMain, decimals: priceDecimals } = formatPrice(product.price);
@@ -28,4 +28,4 @@ export function mapProductToRow(product: IProduct): ProductTableRowData {
     thumbnail: product.thumbnail,
     selected: false,
   };
-}
+};

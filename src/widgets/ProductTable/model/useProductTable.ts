@@ -23,7 +23,7 @@ export interface ProductTablePaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export function useProductTable() {
+export const useProductTable = () => {
   const search = useProductsListStore((s) => s.search);
   const page = useProductsListStore((s) => s.page);
   const setPage = useProductsListStore((s) => s.setPage);
@@ -79,4 +79,4 @@ export function useProductTable() {
     paginationProps,
     refetch,
   };
-}
+};

@@ -6,7 +6,7 @@ import { flexRender } from '@tanstack/react-table';
 
 import { ProgressBar } from '@/shared/ui/ProgressBar/ProgressBar';
 
-export function ProductTable() {
+export const ProductTable = () => {
   const { table, isLoading, paginationProps, refetch } = useProductTable();
 
   return (
@@ -52,4 +52,4 @@ export function ProductTable() {
       <ProductTablePagination {...paginationProps} />
     </div>
   );
-}
+};

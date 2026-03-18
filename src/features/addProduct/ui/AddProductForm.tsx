@@ -11,7 +11,7 @@ export interface AddProductFormProps {
   onCancel: () => void;
 }
 
-export function AddProductForm({ formId, onSubmit }: AddProductFormProps) {
+export const AddProductForm = ({ formId, onSubmit }: AddProductFormProps) => {
   const form = useForm<AddProductFormValues>({
     resolver: zodResolver(addProductSchema),
     defaultValues: {
@@ -83,4 +83,4 @@ export function AddProductForm({ formId, onSubmit }: AddProductFormProps) {
       />
     </form>
   );
-}
+};

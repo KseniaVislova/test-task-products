@@ -19,13 +19,13 @@ export interface UseProductsQueryParams {
   order?: ProductSortOrder;
 }
 
-export function useProductsQuery({
+export const useProductsQuery = ({
   page = 1,
   limit = 20,
   search,
   sortBy,
   order = 'asc',
-}: UseProductsQueryParams = {}) {
+}: UseProductsQueryParams = {}) => {
   const skip = (page - 1) * limit;
   const localProducts = useLocalProductsStore((s) => s.localProducts);
 
@@ -53,4 +53,4 @@ export function useProductsQuery({
     error: query.error,
     refetch: query.refetch,
   };
-}
+};

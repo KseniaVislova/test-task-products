@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function UserIcon(props: SVGProps<SVGSVGElement>) {
+export const UserIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="24"
@@ -19,4 +19,4 @@ export function UserIcon(props: SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+};

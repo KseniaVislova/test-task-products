@@ -2,7 +2,7 @@ import type { AddProductFormValues } from '../model/validation';
 import { AddProductForm } from './AddProductForm';
 
 import { Button } from '@/shared/ui/Button/Button';
-import { Modal } from '@/shared/ui/Modal';
+import { Modal } from '@/shared/ui/Modal/Modal';
 
 export interface AddProductModalProps {
   isOpen: boolean;
@@ -13,12 +13,12 @@ export interface AddProductModalProps {
 
 const FORM_ID = 'add-product-form';
 
-export function AddProductModal({
+export const AddProductModal = ({
   isOpen,
   onClose,
   onSubmit,
   isSubmitting = false,
-}: AddProductModalProps) {
+}: AddProductModalProps) => {
   const actions = (
     <>
       <Button type="button" variant="secondary" onClick={onClose} disabled={isSubmitting}>
@@ -35,4 +35,4 @@ export function AddProductModal({
       <AddProductForm formId={FORM_ID} onSubmit={onSubmit} onCancel={onClose} />
     </Modal>
   );
-}
+};

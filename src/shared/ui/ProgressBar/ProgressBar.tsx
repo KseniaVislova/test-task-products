@@ -5,7 +5,7 @@ export interface ProgressBarProps {
   indeterminate?: boolean;
 }
 
-export function ProgressBar({ className, indeterminate = true }: ProgressBarProps) {
+export const ProgressBar = ({ className, indeterminate = true }: ProgressBarProps) => {
   return (
     <div
       role="progressbar"
@@ -23,4 +23,4 @@ export function ProgressBar({ className, indeterminate = true }: ProgressBarProp
       />
     </div>
   );
-}
+};

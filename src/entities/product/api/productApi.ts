@@ -48,7 +48,6 @@ export const productApi = {
     return data;
   },
 
-  /** POST /products/add — симуляция создания, ответ с новым id (DummyJSON). */
   addProduct: async (body: IProductAddRequest): Promise<IProduct> => {
     const { data } = await axiosInstance.post<Record<string, unknown>>('/products/add', body);
     return mapAddProductResponseToIProduct(data, body);

@@ -14,12 +14,12 @@ export interface ProductTableColumnsParams {
   rowIds: string[];
 }
 
-export function getProductTableColumns({
+export const getProductTableColumns = ({
   sortBy,
   order,
   onSort,
   rowIds,
-}: ProductTableColumnsParams): ColumnDef<ProductTableRowData>[] {
+}: ProductTableColumnsParams): ColumnDef<ProductTableRowData>[] => {
   return [
     {
       id: 'select',
@@ -184,4 +184,4 @@ export function getProductTableColumns({
       size: 128,
     },
   ];
-}
+};

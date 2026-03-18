@@ -1,6 +1,6 @@
 import { type SVGProps } from 'react';
 
-export function EyeOpenIcon(props: SVGProps<SVGSVGElement>) {
+export const EyeOpenIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="22"
@@ -17,4 +17,4 @@ export function EyeOpenIcon(props: SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+};

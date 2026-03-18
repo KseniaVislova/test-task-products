@@ -15,11 +15,11 @@ export interface ProductTablePaginationState {
   canNext: boolean;
 }
 
-export function useProductTablePagination({
+export const useProductTablePagination = ({
   currentPage,
   total,
   pageSize,
-}: UseProductTablePaginationParams): ProductTablePaginationState {
+}: UseProductTablePaginationParams): ProductTablePaginationState => {
   const totalPages = pageSize > 0 ? Math.ceil(total / pageSize) || 0 : 0;
   const from = total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
   const to = Math.min(currentPage * pageSize, total);
@@ -41,4 +41,4 @@ export function useProductTablePagination({
     canPrev,
     canNext,
   };
-}
+};

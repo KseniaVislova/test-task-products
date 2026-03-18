@@ -9,7 +9,7 @@ import { productApi } from '@/entities/product/api/productApi';
 
 import { Toast } from '@/shared/ui/Toast/Toast';
 
-export function useAddProduct() {
+export const useAddProduct = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const addProductToStore = useLocalProductsStore((s) => s.addProduct);
 
@@ -58,4 +58,4 @@ export function useAddProduct() {
       submitAddProduct(values);
     },
   };
-}
+};
