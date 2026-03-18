@@ -1,0 +1,71 @@
+{
+  "useTabs": false,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSameLine": false,
+  "semi": true,
+  "endOfLine": "auto",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
+  "rangeStart": 0,
+  "vueIndentScriptAndStyle": false,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^(react|react-dom)$",
+    "^(react|react-dom)/.*$",
+    "<THIRD_PARTY_MODULES>",
+    "^@fontsource/.*$",
+    "^@/app/.*$",
+    "^@/pages/.*$",
+    "^@/widgets/.*$",
+    "^@/features/.*$",
+    "^@/entities/.*$",
+    "^@/shared/.*$",
+    "^@/.*$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": true,
+  "importOrderCaseInsensitive": true,
+  "overrides": [
+    {
+      "files": "*.{css,scss,less}",
+      "options": {
+        "parser": "css"
+      }
+    },
+    {
+      "files": "*.{md,markdown}",
+      "options": {
+        "parser": "markdown",
+        "proseWrap": "always"
+      }
+    },
+    {
+      "files": "*.{json,jsonc}",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": "*.{html,htm}",
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": "*.{yaml,yml}",
+      "options": {
+        "parser": "yaml"
+      }
+    }
+  ]
+}

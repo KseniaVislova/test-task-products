@@ -1,0 +1,164 @@
+@import './fonts.css';
+@import 'tailwindcss';
+
+/* Кастомные цвета из макета */
+@theme {
+  --color-primary-500: #242edb;
+  --color-primary-600: #1a24b0;
+  --color-primary-700: #151d8c;
+
+  /* Нейтральные */
+  --color-neutral-100: #f6f6f6;
+  --color-neutral-200: #e1e1e1;
+  --color-neutral-400: #989898;
+  --color-neutral-500: #6c6c6c;
+  --color-neutral-600: #525252;
+  --color-neutral-800: #222222;
+
+  /* Светло‑серые */
+  --color-zinc-100: #f3f3f3;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-600: #52525b;
+  --color-zinc-800: #27272a;
+
+  --color-stone-50: #f9f9f9;
+  --color-stone-300: #c4c4c4;
+
+  /* Акцентные */
+  --color-blue-500: #357aff;
+  --color-blue-700: #242ddb;
+  --color-red-600: #f01010;
+  --color-indigo-400: #797fea;
+  --color-slate-600: #3b538d;
+
+  /* Дополнительные */
+  --color-gray-200: #ededed;
+
+  /* Шрифты */
+  --font-inter: Inter, sans-serif;
+  --font-cairo: Cairo, sans-serif;
+  --font-open-sans: Open Sans, sans-serif;
+  --font-roboto-mono: Roboto Mono, monospace;
+  --font-roboto: Roboto, sans-serif;
+
+  /* Тени */
+  --shadow-card: 0px 24px 32px 0px rgba(0, 0, 0, 0.04);
+  --shadow-icon: 0px 12px 8px 0px rgba(0, 0, 0, 0.03), 0px 0px 0px 2px rgba(255, 255, 255, 1);
+  --shadow-button:
+    0px 8px 8px 0px rgba(54, 122, 255, 0.03), inset 0px -2px 0px 1px rgba(0, 0, 0, 0.08);
+  --shadow-pagination: 0px 20px 50px 0px rgba(0, 0, 0, 0.12);
+  --shadow-inner-border: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.17);
+
+  /* Скругления (для замены rounded[...] значений) */
+  --radius-10: 10px;
+  --radius-28: 28px;
+  --radius-32: 32px;
+
+  /* Максимальные ширины (для замены max-w[...] значений) */
+  --max-width-520: 520px;
+  --max-width-527: 527px;
+  --max-width-1023: 1023px;
+
+  /* Тени (для замены shadow values) */
+  --shadow-auth-inner: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --shadow-auth-icon: 0px 12px 8px 0px rgba(0, 0, 0, 0.03);
+  --shadow-button-primary: 0px 8px 8px 0px rgba(54, 122, 255, 0.03);
+
+  /* Типографика */
+  --text-4xl: 40px;
+
+  /* Анимации */
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-fade-out: fade-out 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-slide-down: slide-down 0.4s ease-out;
+
+  /* Отступы */
+  --spacing-0\.5: 0.125rem;
+  --spacing-1\.5: 0.375rem;
+  --spacing-2\.5: 0.625rem;
+  --spacing-3\.5: 0.875rem;
+  --spacing-4\.5: 1.125rem;
+  --spacing-5\.5: 1.375rem;
+  --spacing-6\.5: 1.625rem;
+  --spacing-7\.5: 1.875rem;
+  --spacing-8\.5: 2.125rem;
+  --spacing-9\.5: 2.375rem;
+}
+
+/* Кастомные keyframes для анимаций */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+/* Remove browser autofill background */
+input.bg-white:-webkit-autofill,
+input.bg-white:-webkit-autofill:hover,
+input.bg-white:-webkit-autofill:focus,
+input.bg-white:-webkit-autofill:active {
+  /* Chrome paints autofill background via -webkit-box-shadow */
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  -webkit-text-fill-color: inherit !important;
+  transition: background-color 9999s ease-out 0s !important;
+}
+
+/* Some browsers use this internal selector for autofilled inputs */
+input.bg-white:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+}
