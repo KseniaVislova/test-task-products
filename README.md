@@ -1,82 +1,97 @@
-# React + TypeScript + Vite
+# Test Task Products Admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+Тестовое задание по React/TypeScript: административная система управления товарами с таблицами,
+сортировкой, поиском, формами и авторизацией.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
-  uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
-  uses [SWC](https://swc.rs/)
+Приложение позволяет:
 
-## React Compiler
+- пройти вход (логин/пароль + обработка ошибок с уведомлениями);
+- загрузить список товаров из публичного API;
+- удобно взаимодействовать с данными: сортировать, искать, редактировать и добавлять новые позиции;
 
-The React Compiler is not enabled on this template because of its impact on dev & build
-performances. To add it, see
-[this documentation](https://react.dev/learn/react-compiler/installation).
+## Стек проекта
 
-## Expanding the ESLint configuration
+- React 19+
+- TypeScript (строгая типизация)
+- Vite (сборка и dev-сервер)
+- React Router DOM (роутинг)
+- TanStack Query (запросы/кэш)
+- Zustand (состояние таблицы/сортировки)
+- React Hook Form + Zod (валидация форм)
+- Axios (HTTP-клиент)
+- react-hot-toast (toast-уведомления)
+- TanStack Table (таблица)
+- Tailwind CSS (UI-стилизация)
 
-If you are developing a production application, we recommend updating the configuration to enable
-type-aware lint rules:
+## Тестовые креды
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Для входа используйте:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `username`: `emilys`
+- `password`: `emilyspass`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+## API
+
+- Auth: [DummyJSON Auth](https://dummyjson.com/docs/auth)
+- Products: [DummyJSON Products](https://dummyjson.com/docs/products)
+
+Возможны проблемы с доступом к API без ВПН.
+
+В проекте используется переменная окружения `VITE_API_URL`
+
+## Запуск без Docker
+
+1. Установите зависимости:
+   ```bash
+   npm ci
+   ```
+2. Запустите dev-сервер:
+   ```bash
+   npm run dev
+   ```
+   Откройте URL, который покажет терминал (Vite).
+
+Для production-режима:
+
+1. Сборка:
+   ```bash
+   npm run build
+   ```
+2. Предпросмотр сборки:
+   ```bash
+   npm run preview
+   ```
+   Откройте URL, который покажет терминал (Vite).
+
+## Сборка и запуск с Docker
+
+### Вариант 1: `docker build` + `docker run`
+
+1. Сборка образа:
+   ```bash
+   docker build -t test-task-products .
+   ```
+2. Запуск контейнера:
+   ```bash
+   docker run --rm -p 3000:3000 test-task-products
+   ```
+
+Приложение будет доступно по адресу: `http://localhost:3000`.
+
+### Вариант 2: Docker Compose
+
+```bash
+npm run docker:up
 ```
 
-You can also install
-[eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
-and
-[eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
-for React-specific lint rules:
+Открывайте: `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import reactDom from 'eslint-plugin-react-dom';
-import reactX from 'eslint-plugin-react-x';
+Удобные команды через `npm`:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run docker:up
+npm run docker:stop
+npm run docker:reset
 ```
